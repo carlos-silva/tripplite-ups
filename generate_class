@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Generates the class files in a separate directory
+
+PROJECT_DIR=/usr/local/octopus-ups
+SOURCE_DIR=$PROJECT_DIR/src
+TARGET_DIR=$PROJECT_DIR/class
+JAR_FILE=$PROJECT_DIR/jar/AdventNetLogging.jar:$PROJECT_DIR/jar/AdventNetSnmp.jar:$PROJECT_DIR/jar/octopus-utils.jar
+CLASSPATH=$JAR_FILE:$SOURCE_DIR:/usr/local/ims/src
+
+# may need to change, use CLI command 'which java' to determine path to java bin
+JAVA_HOME=/usr/java/latest
+JAVA_BIN=$JAVA_HOME/bin
+JAVAC_EXE=$JAVA_BIN/javac
+
+echo $JAVAC_EXE -d $TARGET_DIR -cp $CLASSPATH $SOURCE_DIR/octopus/ups/*.java
+$JAVAC_EXE -d $TARGET_DIR -cp $CLASSPATH $SOURCE_DIR/octopus/ups/*.java

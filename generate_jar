@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Generate the Java Archive file
+
+PROJECT_HOME=/usr/local/octopus-ups
+JAR_FILENAME=$PROJECT_HOME/jar/octopus-ups.jar
+CLASS_FILES_PATH=$PROJECT_HOME/class
+
+# may need to change, use CLI command 'which java' to determine path of java bin
+JAVA_HOME=/usr/java/latest
+JAVA_BIN=$JAVA_HOME/bin
+JAR_EXE=$JAVA_BIN/jar
+
+echo $JAR_EXE cvf $JAR_FILENAME -C $CLASS_FILES octopus/
+$JAR_EXE cvf $JAR_FILENAME -C $CLASS_FILES_PATH octopus/

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Generates the javadoc files
+
+PROJECT_DIR=/usr/local/octopus-ups
+OUTPUT_DIR=$PROJECT_DIR/javadoc
+SOURCE_DIR=$PROJECT_DIR/src
+PACKAGE_NAMES=octopus.ups
+
+# may need to change, use CLI command 'which java' to determine path of java bin
+JAVA_HOME=/usr/java/latest
+JAVA_BIN=$JAVA_HOME/bin
+JAVADOC_EXE=$JAVA_BIN/javadoc
+
+echo $JAVADOC_EXE -d $OUTPUT_DIR -sourcepath $SOURCE_DIR $PACKAGE_NAMES
+$JAVADOC_EXE -d $OUTPUT_DIR -sourcepath $SOURCE_DIR $PACKAGE_NAMES
